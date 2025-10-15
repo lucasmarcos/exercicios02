@@ -48,7 +48,8 @@ A função deve ter a assinatura \texttt{void trocar\_ciclica(int *a, int *b, in
 
 #include <stdio.h>
 
-void trocar_ciclica(int *a, int *b, int *c) {
+void trocar_ciclica(int *a, int *b, int *c)
+{
   int temp = *a;
   *a = *c;
   *c = *b;

@@ -46,13 +46,15 @@ Você deve implementar uma função auxiliar para trocar valores entre dois pont
 
 #include <stdio.h>
 
-void trocar(char *a, char *b) {
+void trocar(char *a, char *b)
+{
   char temp = *a;
   *a = *b;
   *b = temp;
 }
 
-void ordenar_tres_caracteres(char *p1, char *p2, char *p3) {
+void ordenar_tres_caracteres(char *p1, char *p2, char *p3)
+{
   if (*p1 > *p2) {
     trocar(p1, p2);
   }

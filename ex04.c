@@ -64,7 +64,48 @@ A função deve ter a assinatura \texttt{int dividir(int dividendo, int divisor,
 
 #include <stdio.h>
 
+int dividir(int dividendo, int divisor, int *quociente, int *resto)
+{
+  if (divisor == 0) {
+    return -1;
+  }
+
+  *quociente = dividendo / divisor;
+  *resto = dividendo % divisor;
+
+  return 0;
+}
+
+void validar_resultado(int dividendo, int divisor, int quociente, int resto)
+{
+  int validacao = quociente * divisor + resto;
+
+  if (resto >= 0) {
+    printf("Validacao: %d = %d x %d + %d\n", dividendo, quociente, divisor, resto);
+  } else {
+    printf("Validacao: %d = %d x %d + (%d)\n", dividendo, quociente, divisor, resto);
+  }
+}
+
 int main(int argc, char *argv[])
 {
+  int dividendo, divisor;
+  int quociente, resto;
+  int codigo_retorno;
+
+  scanf("%d", &dividendo);
+
+  scanf("%d", &divisor);
+
+  codigo_retorno = dividir(dividendo, divisor, &quociente, &resto);
+
+  if (codigo_retorno == 0) {
+    printf("Quociente: %d, Resto: %d\n", quociente, resto);
+    validar_resultado(dividendo, divisor, quociente, resto);
+    printf("(codigo de retorno: %d)\n", codigo_retorno);
+  } else {
+    printf("Erro: Divisao por zero (codigo de retorno: %d)\n", codigo_retorno);
+  }
+
   return 0;
 }

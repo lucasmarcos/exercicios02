@@ -58,7 +58,8 @@ A função deve ter a assinatura \texttt{int calcular(float a, float b, float *r
 
 #include <stdio.h>
 
-int calcular(float a, float b, float *resultado, char operacao) {
+int calcular(float a, float b, float *resultado, char operacao)
+{
   switch (operacao) {
     case '+':
       *resultado = a + b;
@@ -84,7 +85,8 @@ int calcular(float a, float b, float *resultado, char operacao) {
   }
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
   float num1, num2, resultado;
   char operacao;
   int codigo_retorno;
