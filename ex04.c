@@ -94,7 +94,6 @@ int main(int argc, char *argv[])
   int codigo_retorno;
 
   scanf("%d", &dividendo);
-
   scanf("%d", &divisor);
 
   codigo_retorno = dividir(dividendo, divisor, &quociente, &resto);
