@@ -74,8 +74,58 @@ Você deve implementar a função \texttt{void transladar(float *x, float *y, fl
 */
 
 #include <stdio.h>
+#include <math.h>
 
-int main(int argc, char *argv[])
-{
+void transladar(float *x, float *y, float dx, float dy) {
+  *x = *x + dx;
+  *y = *y + dy;
+}
+
+void rotacionar(float *x, float *y, float angulo) {
+  float x_original = *x;
+  float y_original = *y;
+
+  float cos_theta = cos(angulo);
+  float sin_theta = sin(angulo);
+
+  *x = x_original * cos_theta - y_original * sin_theta;
+  *y = x_original * sin_theta + y_original * cos_theta;
+}
+
+float graus_para_radianos(float graus) {
+  return graus * M_PI / 180.0;
+}
+
+void exibir_coordenadas(float x, float y) {
+  printf("x = %.1f, y = %.1f\n", x, y);
+}
+
+int main(int argc, char *argv[]) {
+  float x, y;
+  int opcao;
+
+  scanf("%f", &x);
+  scanf("%f", &y);
+
+  scanf("%d", &opcao);
+
+  switch (opcao) {
+    case 1:
+      float dx, dy;
+      scanf("%f", &dx);
+      scanf("%f", &dy);
+      transladar(&x, &y, dx, dy);
+      exibir_coordenadas(x, y);
+      break;
+
+    case 2:
+      float angulo_graus, angulo_radianos;
+      scanf("%f", &angulo_graus);
+      angulo_radianos = graus_para_radianos(angulo_graus);
+      rotacionar(&x, &y, angulo_radianos);
+      exibir_coordenadas(x, y);
+      break;
+  }
+
   return 0;
 }

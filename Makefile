@@ -25,7 +25,7 @@ ex04.o: ex04.c
 	gcc -c ex04.c
 
 ex05: ex05.o
-	gcc -o ex05 ex05.o
+	gcc -o ex05 ex05.o -lm
 
 ex05.o: ex05.c
 	gcc -c ex05.c
