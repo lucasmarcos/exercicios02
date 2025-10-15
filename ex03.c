@@ -58,7 +58,58 @@ A função deve ter a assinatura \texttt{int calcular(float a, float b, float *r
 
 #include <stdio.h>
 
-int main(int argc, char *argv[])
-{
+int calcular(float a, float b, float *resultado, char operacao) {
+  switch (operacao) {
+    case '+':
+      *resultado = a + b;
+      return 0;
+
+    case '-':
+      *resultado = a - b;
+      return 0;
+
+    case '*':
+      *resultado = a * b;
+      return 0;
+
+    case '/':
+      if (b == 0.0) {
+        return -1;
+      }
+      *resultado = a / b;
+      return 0;
+
+    default:
+      return -2;
+  }
+}
+
+int main(int argc, char *argv[]) {
+  float num1, num2, resultado;
+  char operacao;
+  int codigo_retorno;
+
+  scanf("%f", &num1);
+
+  scanf(" %c", &operacao);
+
+  scanf("%f", &num2);
+
+  codigo_retorno = calcular(num1, num2, &resultado, operacao);
+
+  switch (codigo_retorno) {
+    case 0:
+      printf("Resultado: %.1f (codigo de retorno: %d)\n", resultado, codigo_retorno);
+      break;
+
+    case -1:
+      printf("Erro: Divisao por zero (codigo de retorno: %d)\n", codigo_retorno);
+      break;
+
+    case -2:
+      printf("Erro: Operacao invalida (codigo de retorno: %d)\n", codigo_retorno);
+      break;
+  }
+
   return 0;
 }
